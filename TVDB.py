@@ -1,8 +1,10 @@
+#!/usr/bin/env python3
 import re
 import os
 import requests
 import xml.etree.ElementTree as et
 import sys
+import Rename as r
 
 # TVDb API Key
 API_KEY = "C2AA47AACAA7C7B2"
@@ -14,7 +16,7 @@ ILLEGAL_CHARACTERS = ["/", "\\", ":", "*", "?", "\"", "<", ">", "|"]
 REPLACE_CHAR = "-"
 SEASON_PADDED_ZEROS = 1
 EPISODE_PADDED_ZEROS = 2
-FILTER = 	r"\.|-|_|\b(S?(\d+)+?x?E?(\d+)+?)\b|(\(.+\))|(\[.+\])|(\-.+\-)|\s-.+\s*|\b(\d{4})\b|480p|480i|720p|720i|1080p|1080i|HDTV|H\.264|x264|XviD|BluRay|MMI|WEB-DL|DD5\.1|AAC2\.0|DTS|IMMERSE|EVOLVE|YIFY|PublicHD|CTU|RED|DIMENSION|AFG"	
+FILTER = r"\.|-|_|\b(S?(\d+)+?x?E?(\d+)+?)\b|(\(.+\))|(\[.+\])|(\-.+\-)|\s-.+\s*|\b(\d{4})\b|480p|480i|720p|720i|1080p|1080i|HDTV|H\.264|x264|XviD|BluRay|MMI|WEB-DL|DD5\.1|AAC2\.0|DTS|IMMERSE|EVOLVE|YIFY|PublicHD|CTU|RED|DIMENSION|AFG"	
 
 class Media:
 	def __init__(self, title):
@@ -76,8 +78,8 @@ def TV_ProcessFiles(directory):
 				media.TV_Episode()
 				m = str(media)
 				for char in ILLEGAL_CHARACTERS:	m = m.replace(char, REPLACE_CHAR)
-				os.rename(directory + os.altsep + file, directory + os.altsep + m + os.extsep + split[-1].lower())
-				print(os.extsep.join(split[0:-1]), "->", m)
+				r.Rename(os.path.join(directory, file), m, extension=split[-1])
+				#print(os.extsep.join(split[0:-1]), "->", m)
 		print("Processing complete.")
 	else: raise IOError("Directory doesn't exist!")
 

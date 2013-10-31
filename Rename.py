@@ -1,19 +1,18 @@
 import os
 import sys
 
-def Rename(file, new_name, seperator=os.altsep):
+def Rename(file, new_name, seperator=os.sep, extension=""):
 	if not os.path.exists(file):
 		raise FileNotFoundError("File does not exist")
 
 	else:
-		file = file.replace('\\', seperator)
 
 		directory = seperator.join(file.split(seperator)[0:-1])
 		file_name = file.split(seperator)[-1]
 		extension = file.split(os.extsep)[-1]
 
-		os.rename(file, os.path.join(directory, new_name))
-		print(file, "->", os.path.join(directory, new_name))
+		os.rename(file, os.path.join(directory, new_name + "." + extension))
+		print(file_name, "->", os.path.join(directory, new_name))
 
 if __name__ == '__main__':
 	print("Args:", len(sys.argv))
