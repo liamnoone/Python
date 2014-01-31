@@ -5,6 +5,7 @@ import requests
 import xml.etree.ElementTree as et
 import sys
 import Rename as r
+import unittest
 
 # TVDb API Key
 API_KEY = "C2AA47AACAA7C7B2"
@@ -78,8 +79,7 @@ def TV_ProcessFiles(directory):
 				media.TV_Episode()
 				m = str(media)
 				for char in ILLEGAL_CHARACTERS:	m = m.replace(char, REPLACE_CHAR)
-				r.Rename(os.path.join(directory, file), m, extension=split[-1])
-				#print(os.extsep.join(split[0:-1]), "->", m)
+				r.Rename(os.path.join(directory, file), m, extension=split[-1], extensions=FILE_TYPES)
 		print("Processing complete.")
 	else: raise IOError("Directory doesn't exist!")
 
@@ -87,3 +87,5 @@ if __name__ == "__main__":
 	if len(sys.argv) == 2:
 		TV_ProcessFiles(sys.argv[1])
 	else: print("Missing target Directory")
+
+    

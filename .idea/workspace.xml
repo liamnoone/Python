@@ -28,21 +28,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TVDB.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TVDB.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TVDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="48" selection-start="2055" selection-end="2055" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="1581">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeTableScraper.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TimeTableScraper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="48" selection-start="346" selection-end="346" vertical-scroll-proportion="0.36266667" vertical-offset="0" max-vertical-offset="375">
+            <state line="91" column="4" selection-start="3095" selection-end="3095" vertical-scroll-proportion="0.85884356" vertical-offset="860" max-vertical-offset="1470">
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#23#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,19 +57,19 @@
         <option value="$PROJECT_DIR$/Eircom.py" />
         <option value="$PROJECT_DIR$/Goodreads.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/TVDB.py" />
         <option value="$PROJECT_DIR$/TimeTableScraper.py" />
         <option value="$PROJECT_DIR$/Duplicate.py" />
         <option value="$PROJECT_DIR$/CRC.py" />
         <option value="$PROJECT_DIR$/CRC32.py" />
+        <option value="$PROJECT_DIR$/TVDB.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="x" value="-43" />
+    <option name="y" value="151" />
+    <option name="width" value="1358" />
+    <option name="height" value="721" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -130,14 +121,14 @@
     <property name="Database.TableEditor.Splitter" value="0.9" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="appearance" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/CRC.py" />
     <property name="FullScreen" value="false" />
     <property name="last.edited.regexp" value="Web Programming 2" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -246,6 +237,30 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Python" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -285,6 +300,28 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Python" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -296,6 +333,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Python" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -391,17 +447,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="-43" y="151" width="1358" height="721" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32943144" sideWeight="0.4996277" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.49926794" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.6912752" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19090909" sideWeight="0.5771812" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3942953" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18257576" sideWeight="0.6912752" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32943144" sideWeight="0.5003723" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3276923" sideWeight="0.50073206" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42114094" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -426,16 +482,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/TVDB.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/TVDB.py</url>
-          <line>71</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/TimeTableScraper.py</url>
           <line>8</line>
           <option name="timeStamp" value="62" />
@@ -457,16 +503,54 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/TVDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="48" selection-start="2055" selection-end="2055" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
-          <folding />
+        <state line="91" column="4" selection-start="3095" selection-end="3095" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1470">
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TimeTableScraper.py">
+    <entry file="file://$PROJECT_DIR$/TVDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="340">
+        <state line="91" column="4" selection-start="3095" selection-end="3095" vertical-scroll-proportion="0.0" vertical-offset="1262" max-vertical-offset="1764">
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TVDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="4" selection-start="3095" selection-end="3095" vertical-scroll-proportion="0.0" vertical-offset="1225" max-vertical-offset="1764">
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TVDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="48" selection-start="1917" selection-end="1917" vertical-scroll-proportion="0.0" vertical-offset="972" max-vertical-offset="1620">
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TVDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="48" selection-start="1917" selection-end="1917" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710">
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TVDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="48" selection-start="2055" selection-end="2055" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -474,22 +558,10 @@
     <entry file="file://$PROJECT_DIR$/TVDB.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="48" selection-start="2055" selection-end="2055" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="1581">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TimeTableScraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="47" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="340">
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#23#32#0" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python33/Lib/re.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="53" selection-start="7959" selection-end="7959" vertical-scroll-proportion="0.6398964" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Instapaper.py">
@@ -502,21 +574,6 @@
         <state line="1480" column="0" selection-start="59057" selection-end="59057" vertical-scroll-proportion="0.6655738" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Virtual/Lib/site-packages/tvdb_ui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="158" selection-end="158" vertical-scroll-proportion="-6.9496856" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Virtual/Lib/site-packages/tvdb_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="291" column="0" selection-start="8173" selection-end="8173" vertical-scroll-proportion="-16.775438" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Python33/Lib/xml/etree/ElementTree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1376" column="14" selection-start="47638" selection-end="47638" vertical-scroll-proportion="-0.6403509" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.69552237" vertical-offset="0" max-vertical-offset="0" />
@@ -524,23 +581,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TVDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="48" selection-start="2055" selection-end="2055" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="1581">
-          <folding />
+        <state line="91" column="4" selection-start="3095" selection-end="3095" vertical-scroll-proportion="0.85884356" vertical-offset="860" max-vertical-offset="1470">
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Duplicate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.26645768" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TimeTableScraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="48" selection-start="346" selection-end="346" vertical-scroll-proportion="0.36266667" vertical-offset="0" max-vertical-offset="375">
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
   </component>
