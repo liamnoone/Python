@@ -2,10 +2,9 @@
 import re
 import os
 import requests
-import xml.etree.ElementTree as et
 import sys
 import Rename as r
-import unittest
+from bs4 import BeautifulSoup
 
 # TVDb API Key
 API_KEY = "C2AA47AACAA7C7B2"
@@ -15,82 +14,81 @@ FILE_TYPES = ["AVI", "MP4", "MKV"]
 ILLEGAL_CHARACTERS = ["/", "\\", ":", "*", "?", "\"", "<", ">", "|"]
 # Character to replace those characters with
 REPLACE_CHAR = "-"
+# Pad out the season/episode with zeros to desired length
 SEASON_PADDED_ZEROS = 1
 EPISODE_PADDED_ZEROS = 2
-FILTER = r"\.|-|_|\b(S?(\d+)+?x?E?(\d+)+?)\b|(\(.+\))|(\[.+\])|(\-.+\-)|\s-.+\s*|\b(\d{4})\b|480p|480i|720p|720i|1080p|1080i|HDTV|H\.264|x264|XviD|BluRay|MMI|WEB-DL|DD5\.1|AAC2\.0|DTS|IMMERSE|EVOLVE|YIFY|PublicHD|CTU|RED|DIMENSION|AFG"	
+# What to filter out of the file name, the goal being to leave only the TV Show, Season # and Episode #
+FILTER = r"\.|-|_|\b(S?(\d+)+?x?E?(\d+)+?)\b|(\(.+\))|(\[.+\])|(\-.+\-)|\s-.+\s*|\b(\d{4})\b| \
+		 480p|480i|720p|720i|1080p|1080i|HDTV|H\.264|x264|XviD|BluRay|MMI|WEB-DL|DD5\.1|AAC2\.0|DTS| \
+		 IMMERSE|EVOLVE|YIFY|PublicHD|CTU|RED|DIMENSION|AFG"
+# The language to return episode data from TVDb for. English is the only tested language
+LANGUAGE = "en"	
 
-class Media:
-	def __init__(self, title):
-		self.title = title
-		self.year = 0000
+class TVShow:
+	def __init__(self, tvshow):
+		self.tvshow = tvshow
+		self.seriesid = 0
 		self.season = 0
 		self.episode = 0
+		self.title = ""
 
 	def __str__(self):
-		return "{0} - {1}x{2} - {3}".format(self.title, self.season.zfill(SEASON_PADDED_ZEROS), self.episode.zfill(EPISODE_PADDED_ZEROS), self.name)
+		return "{0} - {1}x{2} - {3}".format(self.tvshow, 
+											self.season.zfill(SEASON_PADDED_ZEROS), 
+											self.episode.zfill(EPISODE_PADDED_ZEROS), 
+											self.title)
 
-	def Process(self):
-		# Get the year (for movies)
-		self.year = re.findall('[\.\-\(\[](\d{4})[\.\-\(\[]', self.title, flags=2)
-		if self.year.__len__() > 0: self.year = self.year[0]
-		else: self.year = 0000
-
-		# Get the season and episode (for TV Shows)
-		release = re.findall("S?(\d+)x?E?(\d+)", self.title, flags=2)
-		if release.__len__() > 0:
+	def process(self):
+		release = re.findall("S?(\d+)x?E?(\d+)", self.tvshow, flags=2)
+		if len(release) > 0:
 			self.season = release[0][0].lstrip("0")
 			self.episode = release[0][1].lstrip("0")
 
-		#   Replace any fluff from the file name
-		self.title = re.sub(FILTER, " ", self.title, flags=2).strip()
-		return self.title, self.year, self.season, self.episode
+		# Replace any fluff from the file name
+		self.tvshow = re.sub(FILTER, " ", self.tvshow, flags=2).strip()
 
-	def TV_ID(self):
-		r = requests.get("http://thetvdb.com/api/GetSeries.php?seriesname={0}&language=en".format(self.title))
-		for element in et.fromstring(r.content).iter("seriesid"):
-			self.seriesID = element.text
-			break
+	def get_id(self):
+		r = requests.get("http://thetvdb.com/api/GetSeries.php?seriesname={0}&language={1}".format(self.tvshow, LANGUAGE))
+		soup = BeautifulSoup(r.content)
 
-		for element in et.fromstring(r.content).iter("SeriesName"):
-			self.title = element.text
-			break
+		self.seriesID = soup.find("seriesid").text
+		self.tvshow = soup.find("seriesname").text
 
-		return self.seriesID or None
-
-	def TV_Episode(self):
-		r = requests.get("http://thetvdb.com/api/{0}/series/{1}/default/{2}/{3}/en.xml"
-			.format(API_KEY, self.seriesID, str(self.season).lstrip("0"), str(self.episode).lstrip("0")))
+	def get_episode(self):
+		r = requests.get("http://thetvdb.com/api/{0}/series/{1}/default/{2}/{3}/{4}.xml"
+			.format(API_KEY, self.seriesID, str(self.season).lstrip("0"), str(self.episode).lstrip("0"), LANGUAGE))
+		
 		if r.status_code == 404: print("Error! 404: Not found")
-		else:
-			for element in et.fromstring(r.content):
-				for el in element:
-					if el.tag == "EpisodeName":
-						self.name = el.text
-						return self.name
+		else: self.title = BeautifulSoup(r.content).find("episodename").text
+
+	def replace_illegal_characters(self):
+		for illegal_character in ILLEGAL_CHARACTERS:
+			self.tvshow = self.tvshow.replace(illegal_character, REPLACE_CHAR)
+
+		# Replace the ellipsis with three periods to prevent UnicodeError
+		self.tvshow.replace("…",  "...")
 
 
-def TV_ProcessFiles(directory):
+def process_files(directory):
 	if os.path.exists(directory):
 		print("Processing...\n")
-		for file in os.listdir(directory):
-			split = file.split(os.extsep)
+		for file_ in os.listdir(directory):
+			split = file_.split(os.extsep)
 			if split[-1].upper() in FILE_TYPES:
-				media = Media(os.extsep.join(split[0:-1]))
-				media.Process()
-				try: media.TV_ID()
+				tvshow = TVShow(os.extsep.join(split[0:-1]))
+				tvshow.process()
+				try: tvshow.get_id()
 				except AttributeError:
-					print("* Error, skipping:", file)
+					print("* Error, skipping:", file_)
 					continue
-				media.TV_Episode()
-				m = str(media)
-				for char in ILLEGAL_CHARACTERS:	m = m.replace(char, REPLACE_CHAR)
-				r.Rename(os.path.join(directory, file), m, extension=split[-1], extensions=FILE_TYPES)
+				tvshow.get_episode()
+				tvshow.replace_illegal_characters()
+				m = str(tvshow)
+				r.rename(os.sep.join([directory, file_]), m, extension=split[-1], extensions=FILE_TYPES)
 		print("\nProcessing complete.")
 	else: raise IOError("Directory doesn't exist!")
 
 if __name__ == "__main__":
 	if len(sys.argv) == 2:
-		TV_ProcessFiles(sys.argv[1])
+		process_files(sys.argv[1])
 	else: print("Missing target Directory")
-
-    
