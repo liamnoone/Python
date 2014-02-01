@@ -50,6 +50,11 @@ class Media:
 		for element in et.fromstring(r.content).iter("seriesid"):
 			self.seriesID = element.text
 			break
+
+		for element in et.fromstring(r.content).iter("SeriesName"):
+			self.title = element.text
+			break
+
 		return self.seriesID or None
 
 	def TV_Episode(self):
@@ -80,7 +85,7 @@ def TV_ProcessFiles(directory):
 				m = str(media)
 				for char in ILLEGAL_CHARACTERS:	m = m.replace(char, REPLACE_CHAR)
 				r.Rename(os.path.join(directory, file), m, extension=split[-1], extensions=FILE_TYPES)
-		print("Processing complete.")
+		print("\nProcessing complete.")
 	else: raise IOError("Directory doesn't exist!")
 
 if __name__ == "__main__":
