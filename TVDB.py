@@ -21,7 +21,7 @@ EPISODE_PADDED_ZEROS = 2
 # What to filter out of the file name, the goal being to leave only the TV Show, Season # and Episode #
 FILTER = r"\.|-|_|\b(S?(\d+)+?x?E?(\d+)+?)\b|(\(.+\))|(\[.+\])|(\-.+\-)|\s-.+\s*|\b(\d{4})\b| \
          480p|480i|720p|720i|1080p|1080i|HDTV|H\.264|x264|XviD|BluRay|MMI|WEB-DL|DD5\.1|AAC2\.0|DTS|INTERNAL|REPACK|PROPER|ReEnc| \
-         IMMERSE|EVOLVE|YIFY|PublicHD|CTU|RED|DIMENSION|AFG|MIKY|KILLERS|IMMERSE|DeeJayAhmed"
+         IMMERSE|EVOLVE|YIFY|PublicHD|CTU|RED|DIMENSION|AFG|MIKY|KILLERS|IMMERSE|DeeJayAhmed|REMARKABLE|tla|2hd"
 # The language to return episode data from TVDb for. English is the only tested language
 LANGUAGE = "en" 
 
@@ -42,13 +42,13 @@ class TVShow:
     def process(self):
         release = re.findall("S?(\d+)x?E?(\d+)", self.tvshow, flags=2)
         if len(release) > 0:
-            self.season = release[0][0].lstrip("0") if int(release[0][0]) != 0 else release[0][0]
-            self.episode = release[0][1].lstrip("0") if int(release[0][1]) != 0 else release[0][1]
+            self.season = release[0][0].lstrip("0") if len(re.findall("^0+$", release[0][0])) == 0 else "0"
+            self.episode = release[0][1].lstrip("0") if len(re.findall("^0+$", release[0][1])) == 0 else "0"
 
         # Replace any fluff from the file name
         self.tvshow = re.sub(FILTER, " ", self.tvshow, flags=2).strip()
 
-    def get_id(self):
+    def fetch(self):
         r = requests.get("http://thetvdb.com/api/GetSeries.php?seriesname={0}&language={1}".format(self.tvshow, LANGUAGE))
         soup = BeautifulSoup(r.content)
 
@@ -79,7 +79,7 @@ def process_files(directory):
                 tvshow = TVShow(os.extsep.join(split[0:-1]))
                 tvshow.process()
                 try:
-                    tvshow.get_id()
+                    tvshow.fetch()
                 except AttributeError:
                     print("Skipped:", file_)
                     continue
