@@ -21,7 +21,7 @@ EPISODE_PADDED_ZEROS = 2
 # What to filter out of the file name, the goal being to leave only the TV Show, Season # and Episode #
 FILTER = r"\.|-|_|\b(S?(\d+)+?x?E?(\d+)+?)\b|(\(.+\))|(\[.+\])|(\-.+\-)|\s-.+\s*|\b(\d{4})\b| \
          480p|480i|720p|720i|1080p|1080i|HDTV|H\.264|x264|XviD|BluRay|MMI|WEB-DL|DD5\.1|AAC2\.0|DTS|INTERNAL|REPACK|PROPER|ReEnc| \
-         IMMERSE|EVOLVE|YIFY|PublicHD|CTU|RED|DIMENSION|AFG|MIKY|KILLERS|IMMERSE|DeeJayAhmed|REMARKABLE|tla|2hd"
+         IMMERSE|EVOLVE|YIFY|PublicHD|CTU|RED|DIMENSION|AFG|MIKY|KILLERS|IMMERSE|DeeJayAhmed|REMARKABLE|tla|2hd|CtrlHD"
 # The language to return episode data from TVDb for. English is the only tested language
 LANGUAGE = "en" 
 
